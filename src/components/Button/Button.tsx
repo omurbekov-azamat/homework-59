@@ -20,4 +20,4 @@ class Button extends Component<Props> {
   }
 }
 
-export default Button;
+export default React.memo(Button);

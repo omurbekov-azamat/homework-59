@@ -12,7 +12,7 @@ class Movie extends Component<Props> {
 
   shouldComponentUpdate(nextProps: Readonly<Props>): boolean {
     return this.props.movie !== nextProps.movie || this.props.id !== nextProps.id;
-  }
+  };
 
   render() {
     return (
