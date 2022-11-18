@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Movie} from "../types";
+import {Film} from "../../types";
 
 interface Props {
-  onSubmit: (newMovie: Movie) => void;
+  onSubmit: (newMovie: Film) => void;
 }
 
 class MovieForm extends Component<Props> {
