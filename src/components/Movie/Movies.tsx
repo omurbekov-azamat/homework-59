@@ -4,6 +4,8 @@ import Movie from "./Movie";
 
 interface Props{
   movies: Film[];
+  changeMovie: (event: React.ChangeEvent<HTMLInputElement>, id: number) => void;
+  deleteMovie: (id: number) => void;
 }
 
 class Movies extends Component<Props> {
@@ -15,6 +17,8 @@ class Movies extends Component<Props> {
             key={movie.id}
             id={movie.id}
             movie={movie.name}
+            onMovieChange={event => this.props.changeMovie(event, movie.id)}
+            delete={() => this.props.deleteMovie(movie.id)}
           />
         ))}
         

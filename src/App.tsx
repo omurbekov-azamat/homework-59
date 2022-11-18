@@ -11,10 +11,27 @@ function App() {
   };
   console.log(movies)
 
+  const changeMovie = (event: React.ChangeEvent<HTMLInputElement>, id:number) => {
+    setMovies(prev => prev.map(newMovie => {
+      return newMovie.id === id ? {
+        ...newMovie,
+        name: event.target.value,
+      } : newMovie;
+    }))
+  };
+  const deleteMovie = (id: number) => {
+    setMovies(prev => prev.filter(nevMovie => nevMovie.id !== id));
+  };
+
+
   return (
     <div className='container'>
       <MovieForm onSubmit={addMovie}/>
-      <Movies movies={movies}/>
+      <Movies
+        movies={movies}
+        changeMovie={changeMovie}
+        deleteMovie={deleteMovie}
+      />
     </div>
   );
 }
