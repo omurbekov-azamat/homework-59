@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Film} from "../../types";
+import Button from "../Button/Button";
 
 interface Props {
   onSubmit: (newMovie: Film) => void;
@@ -39,7 +40,7 @@ class MovieForm extends Component<Props> {
             required
             onChange={this.onNameMovieChange}
           />
-          <button type='submit' className='btn btn-danger'>Add</button>
+          <Button name='Add' className='btn btn-danger'/>
         </div>
       </form>
     );

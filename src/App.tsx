@@ -1,37 +1,13 @@
-import React, {useState} from 'react';
-import MovieForm from "./components/MovieForm/MovieForm";
-import {Film} from "./types";
-import Movies from "./components/Movie/Movies";
+import React from 'react';
+import MoviesContainer from "./containers/MoviesContainer";
+import JokeContainer from "./containers/JokeContainer";
 
 function App() {
-  const [movies, setMovies] = useState<Film[]>([]);
-
-  const addMovie = (newMovie: Film) => {
-    setMovies(prev => [...prev, newMovie]);
-  };
-  console.log(movies)
-
-  const changeMovie = (event: React.ChangeEvent<HTMLInputElement>, id:number) => {
-    setMovies(prev => prev.map(newMovie => {
-      return newMovie.id === id ? {
-        ...newMovie,
-        name: event.target.value,
-      } : newMovie;
-    }))
-  };
-  const deleteMovie = (id: number) => {
-    setMovies(prev => prev.filter(nevMovie => nevMovie.id !== id));
-  };
-
 
   return (
-    <div className='container'>
-      <MovieForm onSubmit={addMovie}/>
-      <Movies
-        movies={movies}
-        changeMovie={changeMovie}
-        deleteMovie={deleteMovie}
-      />
+    <div className='container d-flex'>
+      <MoviesContainer/>
+      <JokeContainer/>
     </div>
   );
 }
